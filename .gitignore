@@ -1,0 +1,8 @@
+*.mat
+Data/
+*.asv
+*.autosave
+*.mlx.autosave
+slprj/
+codegen/
+resources/project/
