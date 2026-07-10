@@ -1,35 +1,10 @@
-% I AM WORKING ON THIS!!!!!!!!!!!!!!!!!!!!!
-
-% error('This function was incorporated into the package METU as METU_scatterPlot_AnnotColor_grpLabel, for the UMAP article')
-
-
-%% FUNCTIONS FOR THE MetU package
-% Visualise list
-deps = matlab.codetools.requiredFilesAndProducts('METU_interDatasetMatching_ExampleScript.m');
-for i = 1:numel(deps)
-    disp(deps{i})
-end
-
-% Find all files containing a function 
-functionStringToFind = 'DMA_plotPercentOfDiagonal('; % DEFINE 
-for i = 1:numel(deps)
-    if string(deps{i}(end-3:end)) ~= ".mat"
-        txt = fileread(deps{i});
-        if contains(txt,functionStringToFind)
-            fprintf('%s\n',deps{i});
-        end
-    end
-end
-
-
 
 %% This script needs the following packages:
-
 % M2S 
-% HELP
+% HELP_RPtools
 % umap 
 % CanlabCore-master
-% METU
+% METU_UMAPtools
 
 %% Load AW1 old
 

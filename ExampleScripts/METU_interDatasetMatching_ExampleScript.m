@@ -4,9 +4,9 @@
 %% This script needs the following packages:
 
 % M2S 
-% HELP
+% HELP_RPtools
 % umap 
-% METU
+% METU_UMAPtools
 
 
 % Load a structure with the datasets of interest
