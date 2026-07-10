@@ -6,31 +6,10 @@
 % CanlabCore-master
 % METU_UMAPtools
 
-%% Load AW1 old
-
-cd('C:\Users\rjdossan\OneDrive - Imperial College London\Imperial projects\UMAPmetabolomics\Data');
-load 220219_AirwaveDataImputed.mat;
-Xtomatch.VarInfo = HELP_tableCellToString(Xtomatch.VarInfo);
-X = Xtomatch;
-X.UMAPres = UMAPres;
-
-idxToKeep= (1:500)';
-idxToKeep = ceil(linspace(1,size(X.Data,1)-1,500)')
-
-X.Data = X.Data(idxToKeep,:);
-X.SampleInfo = X.SampleInfo(idxToKeep,:);
-
-X.Data = zscore(X.Data);
-
-% save AW1_plasmaXCMS_500samples_imputed X
-%UMAPres.reduction = plottingData;
-%UMAPres.h_figUMAP = h_figUMAP;
-
-
-%% Load AW1 new
+%% Load AW1
 % No missing values; It already contains UMAP coordinates
 cd('C:\Users\rjdossan\OneDrive - Imperial College London\METU_UMAPtools\Data')
-load('AW1_plasmaXCMS_500samples_imputed.mat')
+load('AW1_plasmaXCMS_100samples_imputed.mat')
 X.VarInfo = HELP_tableCellToString(X.VarInfo);% make all columns string or numerical
 
 %% START
@@ -119,7 +98,7 @@ plotType = 0
 % For Airwave1 using a previous UMAP
 
 % nNeighUMAP_or_UMAP = round(0.01*size(X.Data,2)); % Use number of neighbours to define a UMAP, otherwise if a UMAP exists, use it
-nNeighUMAP_or_UMAP = UMAPres;% Use UMAP if it already exists, otherwise use number of neighbours to define a UMAP
+nNeighUMAP_or_UMAP = X.UMAPres;% Use UMAP if it already exists
 
 % NOTE: this will show all clusters, even small ones
 [R] = METU_findUMAPneighbours_part2...

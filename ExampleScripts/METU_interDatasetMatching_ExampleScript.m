@@ -9,15 +9,12 @@
 % METU_UMAPtools
 
 
-% Load a structure with the datasets of interest
-
-cd('C:\Users\rjdossan\OneDrive - Imperial College London\Imperial projects\UMAPmetabolomics\230221 article UMAP')
-load('WS_clusterAW2_plot_inAW3.mat')
-clearvars -except matchedFeatures
-
+% Load a structure with the datasets of interest and another with the 
+% matched features
 
 cd('C:\Users\rjdossan\OneDrive - Imperial College London\METU_UMAPtools\Data')
-load AW2_AW3_plasmaXCMS_imputed
+load AW2_AW3_100samples_plasmaXCMS_imputed
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Define the datasets in X to use
@@ -75,7 +72,7 @@ title('Bayesian Information Criterion with increased number of clusters')
 
 % Calculate inter-dataset clusters with N clusters
 nClusters = all_nClusters1(sorted_bic_idx(1))
-Res_interDatasetClusters = METU_defineClustersInA_visualiseInB(X,f1,f,matchedFeatures,nClusters,1)
+Res_interDatasetClusters = METU_defineClustersInA_visualiseInB(X,f1,f,matchedFeatures,nClusters,1);
 
 disp('Percentages of good features with distances to cluster median within threshold')
 disp(struct2table(Res_interDatasetClusters.percentGoodFeaturesWithinThresh))

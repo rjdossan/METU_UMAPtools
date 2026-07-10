@@ -5,8 +5,8 @@
 %% Load AW1 data with 500 samples and 4089 metabolomic features
 % NOTE: It has been imputed, there are already no missing values; 
 
-cd('C:\Users\rjdossan\OneDrive - Imperial College London\METU_UMAPtools\Data')
-load('AW1_plasmaXCMS_500samples_imputed.mat')
+% cd('C:\Users\rjdossan\OneDrive - Imperial College London\METU_UMAPtools\Data')
+load('AW1_plasmaXCMS_100samples_imputed.mat')
 X.VarInfo = HELP_tableCellToString(X.VarInfo);% make all columns string or numerical
 
 %% Log scale and z-score the data by columns (metabolites) - OPTIONAL
@@ -32,6 +32,8 @@ METU_plotDiagonalORcircle(gcf, X.UMAPres.reduction(1500,:),0.075); % plot circle
 
 % Define annotations and classes
 annotationsForPlot = X.VarInfo.AbbreviatedAnnotation;
+groupColorForPlot = X.VarInfo.RefMet_Super_class;
+groupColorForPlot = X.VarInfo.RefMet_Main_class;
 groupColorForPlot = X.VarInfo.RefMet_Sub_class;
 
 % Plot
